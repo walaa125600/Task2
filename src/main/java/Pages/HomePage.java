@@ -24,9 +24,7 @@ public class HomePage extends PageBase{
     Extractor ext;
     public void SelectDestination() throws Exception {
         ext = new Extractor();
-        /*String previousArrow= ext.Locaters(0,1);
-        WebElement PreviousAArrowElement= driver.findElement(By.xpath(previousArrow));
-        ClickBtn(PreviousAArrowElement);*/
+        ScrollToBottom();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
         String Destination= ext.Locaters(0,2);
         WebElement DestinationElement= driver.findElement(By.xpath(Destination));
@@ -37,21 +35,13 @@ public class HomePage extends PageBase{
 
 public void SelectDate() throws Exception {
     ext = new Extractor();
-    /*String DatePicker = ext.Locaters(0, 3);
-    WebElement DatePickerElement = driver.findElement(By.xpath(DatePicker));
-    ClickBtn(DatePickerElement);*/
 
-
-   /* Calendar cal = Calendar.getInstance();
-    cal.add(Calendar.DATE,20);
-    cal.add(Calendar.DECEMBER,16);*/
 
     WebDriverWait wait = new WebDriverWait(driver, 50);
     String CalenderLocator = ext.Locaters(0, 4);
     new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className(CalenderLocator)));
 
-    //WebElement dateWidgetFrom = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className(CalenderLocator)));
-    //This are the columns of the from date picker table
+
     DateFormat("26","December","2022");
 
 
@@ -60,7 +50,8 @@ public void ClickingOnSearchBtn() throws Exception {
     ext = new Extractor();
     String SearchBtn= ext.Locaters(0,5);
     WebElement SearchBtnElement= driver.findElement(By.xpath(SearchBtn));
-    ClickBtn(SearchBtnElement);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SearchBtnElement);
+     ClickBtn(SearchBtnElement);
 }
 public static String[] getMonthYearValue(String  MonthYearValue){
     return MonthYearValue.split(" ");
@@ -95,10 +86,8 @@ public static String[] getMonthYearValue(String  MonthYearValue){
 
 
         }
-        //String Day= ext.Locaters(0,8);
         try{
             WebElement DayElement=this.driver.findElement(By.xpath("//a[text()='"+exDay+"']"));
-           // wait.until(ExpectedConditions.elementToBeClickable(DayElemen));
             jSExecutor.executeScript("arguments[0].click();", DayElement);
         }
         catch(Exception e){
@@ -108,8 +97,7 @@ public static String[] getMonthYearValue(String  MonthYearValue){
 
     }
 
-    //List<WebElement> columns = dateWidgetFrom.findElements(By.tagName("td"));
-    //DateUtil.clickGivenDay(columns, DateUtil.getCurrentDay());
+
 
 
 

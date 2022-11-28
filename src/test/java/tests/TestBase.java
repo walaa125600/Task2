@@ -1,6 +1,7 @@
 package tests;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -41,24 +42,7 @@ public class TestBase {
 
 	}
 
-	//@AfterSuite
-	/*public void StopDriver()
-	{
-		driver.quit();
-	}*/
 
-	//Take a screenshot when Testcase fail and add it in the Screenshots folder
-	@AfterMethod
-	public void TakeScreenShotsOnFailure(ITestResult Result)
-	{
-		if (Result.getStatus()==ITestResult.FAILURE) {
-			System.out.println("Failed!");
-			System.out.println("Taking ScreenShot.......");
-			//Helper.CaptureScreenShot(driver,Result.getName());
-
-
-		}
-	}
 }
 
 

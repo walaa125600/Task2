@@ -65,7 +65,6 @@ public void FullFillCustomerDetails() throws Exception {
         ext=new Extractor();
     String CustomerDetailsTab = ext.Locaters(0, 13);
     WebElement CustomerDetailTabElement = driver.findElement(By.xpath(CustomerDetailsTab));
-    //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", CustomerDetailTabElement);
     ClickBtn(CustomerDetailTabElement);
 
     String EmailTxtLocator= ext.Locaters(1,1);
@@ -95,8 +94,7 @@ public void FullFillFirstPassengerDetails() throws Exception {
 
 
     String DropDownLocator = ext.Locaters(0, 18);
-    //WebElement DropDownElement = driver.findElement(By.id(DropDownLocator));
-    //ClickBtn(DropDownElement);
+    driver.findElement(By.id(DropDownLocator));
     Select select = new Select(driver.findElement(By.id(DropDownLocator)));
     select.selectByIndex(1);
     try{
@@ -115,8 +113,7 @@ public void FullFillFirstPassengerDetails() throws Exception {
 
 
     String ConcessionDropDownLocator = ext.Locaters(0, 20);
-    // WebElement ConcessionDropDownElement = driver.findElement(By.id(ConcessionDropDownLocator));
-    //ClickBtn(ConcessionDropDownElement);
+
     select = new Select(driver.findElement(By.id(ConcessionDropDownLocator)));
     select.selectByIndex(1);
 
@@ -154,7 +151,6 @@ public void FullFillFirstPassengerDetails() throws Exception {
     select = new Select(driver.findElement(By.className(MonthLocator)));
     select.selectByVisibleText(MonthValue);
 
-    //String YearValue = ext.Locaters(1, 8);
     String YearLocator = ext.Locaters(0, 27);
     select = new Select(driver.findElement(By.className(YearLocator)));
     select.selectByIndex(72);
@@ -204,14 +200,12 @@ public void FullFillFirstPassengerDetails() throws Exception {
         String PassportNoValue= ext.Locaters(1,17);
         String PassportNoLocator = ext.Locaters(0, 33);
         WebElement PassportNoElement = driver.findElement(By.id(PassportNoLocator));
-        //ClickBtn(PassportNoElement);
         SetTextElementTxt(PassportNoElement,PassportNoValue);
 
 
         String AddressValue= ext.Locaters(1,14);
         String AddressLocator = ext.Locaters(0, 34);
         WebElement AddressElement = driver.findElement(By.id(AddressLocator));
-        //ClickBtn(PassportNoElement);
         SetTextElementTxt(AddressElement,AddressValue);
 
 
@@ -225,7 +219,6 @@ public void FullFillFirstPassengerDetails() throws Exception {
         select = new Select(driver.findElement(By.className(MonthLocator)));
         select.selectByVisibleText(MonthValue);
 
-       // String YearValue= ext.Locaters(1,16);
         String YearLocator = ext.Locaters(0, 37);
         select = new Select(driver.findElement(By.className(YearLocator)));
         select.selectByIndex(74);

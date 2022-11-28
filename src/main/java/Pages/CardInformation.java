@@ -25,7 +25,6 @@ public class CardInformation extends PageBase{
         String CardNumLocator=ext.Locaters(0,40);
         WebElement CardNumTxtBox=driver.findElement(By.id(CardNumLocator));
         SetTextElementTxt(CardNumTxtBox,CardNumValue);
-       // driver.switchTo().alert().accept();
         try{
             driver.switchTo().alert().accept();
         }

@@ -21,7 +21,6 @@ public class SearchResultPage extends PageBase{
     public void SelectRandomItem() throws Exception {
         ext = new Extractor();
         wait = new WebDriverWait(driver, 100);
-        // Find and click on a random product
         String RandomListLocator = ext.Locaters(0, 8);
         List<WebElement> allSeats = driver.findElements(By.xpath(RandomListLocator));
         wait = new WebDriverWait(driver, 100);
