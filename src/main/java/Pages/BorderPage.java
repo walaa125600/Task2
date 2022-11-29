@@ -237,6 +237,7 @@ public void FullFillFirstPassengerDetails() throws Exception {
 
         String MakePaymentValue = ext.Locaters(0, 39);
         WebElement MakePaymentElement = driver.findElement(By.xpath(MakePaymentValue));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", MakePaymentElement);
         ClickBtn(MakePaymentElement);
 
     }
